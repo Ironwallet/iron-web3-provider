@@ -18,8 +18,6 @@ class IronWeb3Provider extends BaseProvider {
   constructor(config) {
     super(config);
     this.setConfig(config);
-
-    this.providerNetwork = "ethereum";
     this.idMapping = new IdMapping();
     this.callbacks = new Map();
     this.wrapResults = new Map();
@@ -47,7 +45,7 @@ class IronWeb3Provider extends BaseProvider {
 
   setConfig(config) {
     this.setAddress(config.ethereum.address);
-
+    this.providerNetwork = config.ethereum.providerNetwork ?? "ethereum";
     this.networkVersion = "" + config.ethereum.chainId;
     this.chainId = "0x" + (config.ethereum.chainId || 1).toString(16);
     this.rpc = new RPCServer(config.ethereum.rpcUrl);
@@ -193,7 +191,7 @@ class IronWeb3Provider extends BaseProvider {
         case "eth_subscribe":
           throw new ProviderRpcError(
             4200,
-            `Iron does not support calling ${payload.method}. Please use your own solution`
+            `Iron Wallet does not support calling ${payload.method}. Please use your own solution`
           );
         default:
           // call upstream rpc
