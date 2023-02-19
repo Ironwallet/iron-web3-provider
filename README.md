@@ -1,4 +1,4 @@
-# IronWeb3Provider
+# IronWeb3Provider [![Node CI](https://github.com/Ironwallet/iron-web3-provider/actions/workflows/ci.yml/badge.svg)](https://github.com/Ironwallet/iron-web3-provider/actions/workflows/ci.yml)
 
 IronWeb3Provider is Ethereum web3 provider used by IronWallet.
 
